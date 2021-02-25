@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import * as fromTodo from './state/todos.reducer';
 import { TodosListComponent } from './todos-list/todos-list.component';
+import { MatCheckboxModule, MatListModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,11 @@ import { TodosListComponent } from './todos-list/todos-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ todos: fromTodo.reducer})
+    MatCheckboxModule,
+    MatListModule,
+    StoreModule.forRoot({
+      todos: fromTodo.reducer
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
