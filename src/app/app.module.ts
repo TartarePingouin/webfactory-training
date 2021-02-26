@@ -6,16 +6,19 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import * as fromTodo from './state/todos.reducer';
 import { TodosListComponent } from './todos-list/todos-list.component';
-import { MatCheckboxModule, MatListModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatListModule } from '@angular/material';
+import { TodosDetailComponent } from './todos-detail/todos-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodosListComponent
+    TodosListComponent,
+    TodosDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatButtonModule,
     MatCheckboxModule,
     MatListModule,
     StoreModule.forRoot({

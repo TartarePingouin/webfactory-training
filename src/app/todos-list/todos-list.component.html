@@ -2,14 +2,11 @@
 
 <div>
     <mat-list>
-        <mat-list-item *ngFor="let todo of todosNotDone | async">
-            <mat-checkbox [checked]="false" (change)="onStatusCheckboxClick(todo.id)">
-                {{ todo.title }}</mat-checkbox>
+        <mat-list-item *ngFor="let todo of todos | async">
+            <mat-checkbox [checked]="todo.done" (change)="onStatusCheckboxClick(todo.id)">
+                <span [class.done-todo]="todo.done">{{ todo.title }}</span>
+            </mat-checkbox>
+            <button mat-raised-button (click)="navigateToDetails(todo.id)">Details...</button>
         </mat-list-item>
-        <mat-list-item *ngFor="let todo of todosDone | async">
-            <mat-checkbox [checked]="true" (change)="onStatusCheckboxClick(todo.id)">
-                <span class="done-todo">{{ todo.title }}</span></mat-checkbox>
-        </mat-list-item>
-
     </mat-list>
 </div>

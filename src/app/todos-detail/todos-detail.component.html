@@ -1,0 +1,6 @@
+<h1>Todo details</h1>
+
+<ng-container *ngIf="(todo$ | async) as todo">
+    <p> Title : {{ todo.title }}</p>
+    <p> Description : {{ todo.description }}</p>
+</ng-container>

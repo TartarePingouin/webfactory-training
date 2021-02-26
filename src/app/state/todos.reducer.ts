@@ -7,8 +7,8 @@ export interface State {
 }
 
 const initialTodos: Todo[] = [
-    new Todo('0', 'WF training', false),
-    new Todo('1', 'Sample Todo', false)
+    new Todo('0', 'WF training', 'Training details !!'),
+    new Todo('1', 'Sample Todo', 'Very detailed stuff')
 ];
 
 const todoReducer = createReducer(

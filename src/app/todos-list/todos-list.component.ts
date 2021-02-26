@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Todo, Todos } from '../model/todos.model';
@@ -11,17 +12,22 @@ import { TodosListActions } from './todos-list.actions';
 })
 export class TodosListComponent {
 
-  public todosDone: Observable<Todo[]>;
-  public todosNotDone: Observable<Todo[]>;
+  public todos: Observable<Todo[]>;
 
 
-  constructor(private store: Store<Todos>) {
-    this.todosDone = this.store.select(state => state.todos.filter(todo => todo.done));
-    this.todosNotDone = this.store.select(state => state.todos.filter(todo => !todo.done));
+  constructor(
+    private store: Store<Todos>,
+    private router: Router
+    ) {
+    this.todos = this.store.select(state => state.todos.sort((a,b) => a.done === b.done ? 0 : a.done ? 1 : -1));
   }
 
   public onStatusCheckboxClick(todoId: string): void {
     this.store.dispatch(TodosListActions.toggleStatus({ id: todoId }));
+  }
+
+  public navigateToDetails(id: string) {
+    this.router.navigateByUrl("todos/" + id);
   }
 
 }
