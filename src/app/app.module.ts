@@ -8,12 +8,17 @@ import * as fromTodo from './state/todos.reducer';
 import { TodosListComponent } from './todos-list/todos-list.component';
 import { MatButtonModule, MatCheckboxModule, MatListModule } from '@angular/material';
 import { TodosDetailComponent } from './todos-detail/todos-detail.component';
+import { TodoCreationComponent } from './todo-creation/todo-creation.component';
+import { TodosOverviewComponent } from './todos-overview/todos-overview.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodosListComponent,
-    TodosDetailComponent
+    TodosDetailComponent,
+    TodoCreationComponent,
+    TodosOverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +26,7 @@ import { TodosDetailComponent } from './todos-detail/todos-detail.component';
     MatButtonModule,
     MatCheckboxModule,
     MatListModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({
       todos: fromTodo.reducer
     })

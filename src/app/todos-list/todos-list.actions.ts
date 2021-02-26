@@ -1,6 +1,4 @@
 import { createAction, props } from "@ngrx/store";
-import { Todo } from "../model/todos.model";
-import { State } from "../state/todos.reducer";
 
 export class TodosListActions {
 

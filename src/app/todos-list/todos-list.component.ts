@@ -27,7 +27,7 @@ export class TodosListComponent {
   }
 
   public navigateToDetails(id: string) {
-    this.router.navigateByUrl("todos/" + id);
+    this.router.navigateByUrl("todos/" + id); // add switchMap ?
   }
 
 }

@@ -1,0 +1,17 @@
+<h2>Todo creation</h2>
+
+<form [formGroup]="creationFormControl" (ngSubmit)="onCreationSubmit()">
+
+    <label>
+      Title:
+      <input type="text" formControlName="title" required>
+    </label>
+
+    <label>
+      Description:
+      <input type="text" formControlName="description">
+    </label>
+
+    <button mat-raised-button type="submit" [disabled]="!creationFormControl.valid">Create !</button>
+
+  </form>
